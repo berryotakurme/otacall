@@ -1,0 +1,11 @@
+
+<%= form_for [@song, @call] do |f| %>
+
+  <%= f.text_field :movie_url, placeholder: 'https://www.youtube.com/watch?v=_qLhD7sy0co' %><br>
+
+  <%= f.text_area :text, placeholder: '00:09~ ヲイ！' %><br>
+
+  <%= button_tag type: "submit" do %>
+    投稿する!!
+  <% end %>
+<% end %>

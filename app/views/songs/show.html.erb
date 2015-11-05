@@ -1,0 +1,21 @@
+<%= @song.name %>のコール一覧
+<div class="entry_button" style="float: right">
+  <a href="/songs/<%= @song.id %>/calls/new">コールを投稿する</a>
+</div>
+
+
+<% if @song.calls.present? %>
+  <% @song.calls.each do |call| %>
+    <li>
+      <a href="/users/<%= call.user.id %>">
+      <%= call.user.nickname %>
+      </a>
+      <a>
+      <%= call.movie_url %>
+      <%= call.text %>
+      </a>
+    </li>
+  <% end %>
+<% else %>
+  <p>まだ投稿はありません</p>
+<% end %>

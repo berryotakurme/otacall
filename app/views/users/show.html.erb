@@ -1,0 +1,18 @@
+<header class="user_page-header">
+  <h2><%= @user.nickname %> <span>さんのマイページ</span></h2>
+</header>
+
+<p>推しメン : <%= @user.oshi_member %></p>
+<p>一言コメント : <%= @user.greeting %></p>
+<p>投稿したコール一覧</p>
+<% if @user.calls.present? %>
+  <% @user.calls.each do |call| %>
+    <li>
+      <a href="/songs/<%= call.song.id %>">
+        <%= call.song.name %>
+      </a>
+    </li>
+  <% end %>
+<% else %>
+  <p>まだ投稿はありません</p>
+<%end%>

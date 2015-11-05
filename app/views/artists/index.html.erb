@@ -1,0 +1,13 @@
+アーティスト一覧
+
+<div class="entry_button" style="float: right">
+  <a href="/songs/search">曲名で検索する</a>
+</div>
+
+<% @artists.each do |artist| %>
+  <li>
+    <a href="/artists/<%= artist.id %>">
+      <%= artist.name %>
+    </a>
+  </li>
+<% end %>
