@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_song_call, only: [:new, :create, :edit, :update]
-  before_action :authenticate_user!, :only => [:new, :edit, :destroy]
+  before_action :authenticate_user!, :only => [:new, :edit]
   def new
     @comment = Comment.new
   end
@@ -16,8 +16,12 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    @comment.update(create_params)
-    redirect_to song_call_path(@song, @call)
+    if current_user.id == @comment.user_id
+      @comment.update(create_params)
+      redirect_to song_call_path(@song, @call)
+    else
+      redirect_to song_call_path(@song, @call)
+    end
   end
 
   def destroy
