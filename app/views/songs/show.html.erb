@@ -1,8 +1,9 @@
 <%= @song.name %>のコール一覧
-<div class="entry_button" style="float: right">
-  <a href="/songs/<%= @song.id %>/calls/new">コールを投稿する</a>
-</div>
-
+<% if user_signed_in? %>
+  <div class="entry_button" style="float: right">
+    <a href="/songs/<%= @song.id %>/calls/new">コールを投稿する</a>
+  </div>
+<% end %>
 
 <% if @song.calls.present? %>
   <% @song.calls.each do |call| %>
@@ -24,6 +25,10 @@
         動画のURL : <%= call.movie_url %><br>
         コールの説明 : <%= call.text %>
       </p>
+      <% if user_signed_in? && current_user.id == call.user_id %>
+      <%= link_to '編集する', edit_song_call_path(call.song.id, call.id) , method: :get %>
+      <%= link_to '削除する', song_call_path(call.song.id, call.id) , method: :delete %>
+      <% end %>
       <a href="/songs/<%= @song.id %>/calls/<%= call.id %>">コールの詳細ページへ</a>
     </li>
   <% end %>

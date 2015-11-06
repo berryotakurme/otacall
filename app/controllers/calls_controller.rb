@@ -1,5 +1,5 @@
 class CallsController < ApplicationController
-before_action :authenticate_user!, :only => [:new]
+before_action :authenticate_user!, :only => [:new, :edit]
 
 
   def new
@@ -14,6 +14,29 @@ before_action :authenticate_user!, :only => [:new]
 
   def show
     @call = Call.find(params[:id])
+  end
+
+  def edit
+    @song = Song.find(params[:song_id])
+    @call = Call.find(params[:id])
+
+  end
+
+  def update
+    @song = Song.find(params[:song_id])
+    @call = Call.find(params[:id])
+    if current_user.id == @call.user_id
+      @call.update(create_params)
+      redirect_to song_path(@song)
+    else
+      redirect_to song_path(@song)
+    end
+  end
+
+  def destroy
+    @call = Call.find(params[:id])
+    @call.destroy
+    redirect_to :back
   end
 
   private
