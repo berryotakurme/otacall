@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :artists, only: :show
   resources :users, only: :show
   resources :songs, only: :show do
-    resources :calls, only: [:new, :create]
+    resources :calls, only: [:new, :create, :show] do
+      resources :comments, only: [:new, :create, :edit, :update, :destroy]
+    end
     collection do
       get 'search'
     end
