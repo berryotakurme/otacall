@@ -1,4 +1,6 @@
 class CallsController < ApplicationController
+before_action :authenticate_user!, :only => [:new]
+
 
   def new
     @song = Song.find(params[:song_id])
@@ -8,6 +10,10 @@ class CallsController < ApplicationController
   def create
     Call.create(create_params)
     redirect_to song_path(params[:song_id])
+  end
+
+  def show
+    @call = Call.find(params[:id])
   end
 
   private

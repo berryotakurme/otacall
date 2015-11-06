@@ -1,0 +1,35 @@
+<a href="/users/<%= @call.user.id %>">
+  <%= @call.user.nickname %></a>さんが投稿した
+<a href="/songs/<%= @call.song.id %>">
+  <%= @call.song.name %></a>のコール
+  <li>
+    <p>
+      投稿日時 : <%= @call.created_at %>
+    </p>
+    <% if @call.created_at != @call.updated_at %>
+      <p>
+        更新日時 : <%= @call.updated_at %>
+      </p>
+    <% end %>
+    <p>
+      動画のURL : <%= @call.movie_url %><br>
+      コールの説明 : <%= @call.text %>
+    </p>
+    <% if user_signed_in? %>
+      <%= link_to "このコールにコメントする", new_song_call_comment_path(@call.song.id, @call.id), method: :get %>
+    <% end %>
+  </li>
+  <ul>
+    <% @call.comments.each do |comment| %>
+      <li>
+        <a href="/users/<%= comment.user_id %>">投稿者 : <%= comment.user.nickname %>
+        </a>
+        <p>コメント : <%= comment.text %>
+        </p>
+        <% if user_signed_in? && current_user.id == comment.user_id %>
+        <%= link_to '編集する', edit_song_call_comment_path(@call.song.id, @call.id, comment.id) , method: :get %>
+        <%= link_to '削除する', song_call_comment_path(@call.song.id, @call.id, comment.id) , method: :delete %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>

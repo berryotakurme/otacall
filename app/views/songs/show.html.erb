@@ -7,13 +7,24 @@
 <% if @song.calls.present? %>
   <% @song.calls.each do |call| %>
     <li>
-      <a href="/users/<%= call.user.id %>">
-      <%= call.user.nickname %>
-      </a>
-      <a>
-      <%= call.movie_url %>
-      <%= call.text %>
-      </a>
+      <p>投稿者 :
+        <a href="/users/<%= call.user.id %>">
+          <%= call.user.nickname %>
+        </a>
+      </p>
+      <p>
+        投稿日時 : <%= call.created_at %>
+      </p>
+      <% if call.created_at != call.updated_at %>
+        <p>
+          更新日時 : <%= call.updated_at %>
+        </p>
+      <% end %>
+      <p>
+        動画のURL : <%= call.movie_url %><br>
+        コールの説明 : <%= call.text %>
+      </p>
+      <a href="/songs/<%= @song.id %>/calls/<%= call.id %>">コールの詳細ページへ</a>
     </li>
   <% end %>
 <% else %>
