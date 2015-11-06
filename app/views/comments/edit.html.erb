@@ -1,0 +1,10 @@
+コメントフォーム
+
+<%= form_for [@song, @call, @comment] do |f| %>
+
+  <%= f.text_area :text, placeholder: 'わかりやすいですね！' %><br>
+
+  <%= button_tag type: "submit" do %>
+    投稿する!!
+  <% end %>
+<% end %>
