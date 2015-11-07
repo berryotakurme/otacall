@@ -1,8 +1,9 @@
 <%= @artist.name %>の曲一覧
-<% @artist.songs.each do |song| %>
+<% @songs.each do |song| %>
   <li>
     <a href="/songs/<%= song.id %>">
       <%= song.name %>
     </a>
   </li>
 <% end %>
+<%= paginate(@songs) %>
