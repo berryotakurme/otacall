@@ -50,3 +50,5 @@ gem 'pry-rails'
 gem 'devise'
 
 gem 'mechanize'
+
+gem 'kaminari'
