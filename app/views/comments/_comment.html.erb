@@ -1,0 +1,11 @@
+<li>
+  <p><%= comment.comment_index %></p>
+  <a href="/users/<%= comment.user_id %>">投稿者 : <%= comment.user.nickname %>
+  </a>
+  <p>コメント : <%= comment.text %>
+  </p>
+  <% if user_signed_in? && current_user.id == comment.user_id %>
+  <%= link_to '編集する', edit_song_call_comment_path(@call.song.id, @call.id, comment.id) , method: :get %>
+  <%= link_to '削除する', song_call_comment_path(@call.song.id, @call.id, comment.id) , method: :delete %>
+  <% end %>
+</li>

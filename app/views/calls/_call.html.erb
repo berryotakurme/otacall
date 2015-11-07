@@ -1,0 +1,25 @@
+<li>
+  <p>投稿者 :
+    <a href="/users/<%= call.user.id %>">
+       <%= call.call_index %>
+       <%= call.user.nickname %>
+    </a>
+  </p>
+  <p>
+    投稿日時 : <%= call.created_at %>
+  </p>
+  <% if call.created_at != call.updated_at %>
+    <p>
+      更新日時 : <%= call.updated_at %>
+    </p>
+  <% end %>
+  <p>
+    動画のURL : <%= call.movie_url %><br>
+    コールの説明 : <%= call.text %>
+  </p>
+  <% if user_signed_in? && current_user.id == call.user_id %>
+  <%= link_to '編集する', edit_song_call_path(call.song.id, call.id) , method: :get %>
+  <%= link_to '削除する', song_call_path(call.song.id, call.id) , method: :delete %>
+  <% end %>
+  <a href="/songs/<%= @song.id %>/calls/<%= call.id %>">コールの詳細ページへ</a>
+</li>
