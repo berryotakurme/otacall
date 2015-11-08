@@ -1,14 +1,16 @@
-<div>
+<div class='artist_index'>
   <p>アーティスト一覧</p>
 </div>
-<div class="entry_button" style="float: right">
+<!-- <div class="entry_button" style="float: right">
   <a href="/songs/search">曲名で検索する</a>
-</div>
+</div> -->
 
-<% @artists.each do |artist| %>
-  <li>
-    <a href="/artists/<%= artist.id %>">
-      <%= artist.name %>
-    </a>
-  </li>
-<% end %>
+
+
+  <% @artists.each do |artist| %>
+    <li class="col-xs-6 col-md-4">
+      <a href="/artists/<%= artist.id %>" class="thumbnail image">
+        <img src="http://cdn.helloproject.com/img/rotation/a3d6a3612d48b066f405486921acefbc05067062.jpg" alt="<%= artist.name %>">
+      </a>
+    </li>
+  <% end %>

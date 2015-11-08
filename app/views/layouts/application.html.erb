@@ -8,25 +8,45 @@
 </head>
 
 <body>
-  <header class="">
-    <div class="container">
-      <h1 class="col-xs-9"><a href="/">ヲタコール</a></h1>
+  <header class='header'>
+    <div class='col-xs-12'>
+      <div class="nav-header">
+        <h1><a class="navbar-brand" href="/">Hello!OtaCalls</a></h1>
+      </div>
     </div>
-      <% if user_signed_in? %>
-        <div class="col-xs-3">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
+    <div class='col-xs-12'>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li><a href="/">トップ</a></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+            <% else %>
+              <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+              <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+            <% end %>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="楽曲名を入力してください">
+            </div>
+            <button type="submit" class="btn btn-default">検索</button>
+          </form>
+          <% if user_signed_in? %>
+            <p class="navbar-text"><%= current_user.nickname %>さんがログイン中です</p>
+          <% end %>
         </div>
-        <div class="" style="float: right">
-          <a href="/users/<%= current_user.id %>">マイページ</a>
-        </div>
-      <% else %>
-        <div class="col-xs-12">
-          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
-          <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-        </div>
-      <% end %>
+      </nav>
+    </div>
   </header>
-<%= yield %>
+
+<div class="row">
+  <div class="content center-block">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>
