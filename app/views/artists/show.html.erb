@@ -1,9 +1,11 @@
-<%= @artist.name %>の曲一覧
-<% @songs.each do |song| %>
-  <li>
-    <a href="/songs/<%= song.id %>">
-      <%= song.name %>
-    </a>
-  </li>
-<% end %>
-<%= paginate(@songs) %>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-body"><%= @artist.name %>の曲一覧</div>
+
+  <div class="list-group">
+    <% @songs.each do |song| %>
+        <a href="/songs/<%= song.id %>" class="list-group-item"><%= song.name %></a>
+    <% end %>
+  </div>
+  <%= paginate(@songs) %>
+</div>
