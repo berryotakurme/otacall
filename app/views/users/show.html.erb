@@ -1,18 +1,28 @@
-<header class="user_page-header">
-  <h2><%= @user.nickname %> <span>さんのマイページ</span></h2>
-</header>
+<div class="page-header">
+  <h2><%= @user.nickname %>さんのマイページ</h2>
+</div>
 
-<p>推しメン : <%= @user.oshi_member %></p>
-<p>一言コメント : <%= @user.greeting %></p>
-<p>投稿したコール一覧</p>
-<% if @user.calls.present? %>
-  <% @user.calls.each do |call| %>
-    <li>
-      <a href="/songs/<%= call.song.id %>">
-        <%= call.song.name %>
-      </a>
-    </li>
-  <% end %>
-<% else %>
-  <p>まだ投稿はありません</p>
-<%end%>
+<div class="page-header">
+  <h4><small>推しメン : </small><%= @user.oshi_member %></h4>
+</div>
+
+<div class="page-header">
+  <h4><small>あいさつ : </small><%= @user.greeting %></h4>
+</div>
+
+<div class="page-header">
+  <h3>投稿したコール一覧</h3>
+</div>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+
+  <div class="list-group">
+  <% if @user.calls.present? %>
+    <% @user.calls.each do |call| %>
+      <a href="/songs/<%= call.song.id %>" class="list-group-item"><%= call.song.name %></a>
+    <% end %>
+  <% else %>
+    <li class="list-group-item">まだ投稿はありません</li>
+  <%end%>
+  </div>
+</div>
