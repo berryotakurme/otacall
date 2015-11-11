@@ -1,10 +1,15 @@
-コメントフォーム
-
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>コメント編集フォーム</h4>
+  </div>
+  <div class="panel-footer">
 <%= form_for [@song, @call, @comment] do |f| %>
 
-  <%= f.text_area :text, placeholder: 'わかりやすいですね！' %><br>
+<div class="form-group">
+  <%= f.text_area :text, placeholder: 'わかりやすいですね！', id: 'comment', class: "form-control call_text" %>
+</div>
 
-  <%= button_tag type: "submit" do %>
-    投稿する!!
+  <%= button_tag type: "submit", class: "btn btn-primary" do %>
+    編集する!!
   <% end %>
 <% end %>
