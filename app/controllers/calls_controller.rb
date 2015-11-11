@@ -14,6 +14,7 @@ before_action :authenticate_user!, :only => [:new, :edit]
 
   def show
     @call = Call.find(params[:id])
+    @song = @call.song
     @comments = @call.comments.page(params[:page]).per(5)
     page_index = params[:page] ? (params[:page].to_i-1) * 5 + 1 : 1
     @comment_number = @comments.each.with_index(page_index) do |comment, i|
