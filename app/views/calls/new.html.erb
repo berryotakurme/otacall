@@ -1,11 +1,20 @@
-
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>コール投稿フォーム</h4>
+  </div>
+  <div class="panel-footer">
 <%= form_for [@song, @call] do |f| %>
 
-  <%= f.text_field :movie_url, placeholder: 'https://www.youtube.com/watch?v=_qLhD7sy0co' %><br>
+      <div class="form-group">
+        <%= f.text_field :movie_url, placeholder: 'youtubeのurl', class: "form-control" %>
+    </div>
 
-  <%= f.text_area :text, placeholder: '00:09~ ヲイ！' %><br>
 
-  <%= button_tag type: "submit" do %>
+      <div class="form-group">
+  <%= f.text_area :text, placeholder: '00:09~ ヲイ！', id: 'call', class: "form-control call_text" %>
+  </div>
+
+  <%= button_tag type: "submit", class: "btn btn-primary" do %>
     投稿する!!
   <% end %>
 <% end %>
