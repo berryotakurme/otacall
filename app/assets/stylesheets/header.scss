@@ -8,13 +8,26 @@
 }
 
 .nav.navbar-nav li a {
-  color: white;
+
 }
 
-.navbar-text {
-  color: white;
+.nav.navbar-nav li a.login_user:hover {
+
+}
+
+.dropdown-menu li {
+
 }
 
 .under_header {
-  margin-top: 60px;
+  margin-top: 53px;
+}
+
+.container-fluid {
+  width: 92%;
+  margin-left: auto; margin-right: auto;
+}
+
+.form-group .form-control {
+  width: 219px;
 }
