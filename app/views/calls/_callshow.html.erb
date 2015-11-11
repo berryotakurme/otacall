@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="panel-heading">投稿者 <%= @call.call_index %> :
+    <button class="btn btn-default" type="submit"><a href="/users/<%= @call.user.id %>">
+       <%= @call.user.nickname %>
+     </a></button>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">投稿日時 : <%= @call.created_at %></li>
+
+    <% if @call.created_at != @call.updated_at %>
+
+    <li class="list-group-item">更新日時 : <%= @call.updated_at %></li>
+
+<% end %>
+
+  </ul>
+  <div class="panel-body">
+    <div class="media">
+      <div class="media-left">
+          <iframe width="240" height="180" src="<%= @call.movie_url.gsub('watch?v=', 'embed/') %>" frameborder="1" allowfullscreen></iframe>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">コールの説明 : <%= simple_format(@call.text) %></h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-footer">
+
+    <% if user_signed_in? %>
+
+    <button class="btn btn-default" type="submit"><%= link_to "このコールにコメントする", new_song_call_comment_path(@call.song.id, @call.id), method: :get %></button>
+
+    <% end %>
+
+    <% if user_signed_in? && current_user.id == @call.user_id %>
+    <button class="btn btn-default" type="submit"><%= link_to '編集する', edit_song_call_path(@call.song.id, @call.id) , method: :get %></button>
+    <button class="btn btn-default" type="submit"> <%= link_to '削除する', song_call_path(@call.song.id, @call.id) , method: :delete %></button>
+    <% end %>
+  </div>
+</div>
