@@ -1,12 +1,11 @@
-<div class='artist_index'>
-  <p>アーティスト一覧</p>
+<div class="page-header">
+  <h2>アーティスト一覧</h2>
 </div>
 <!-- <div class="entry_button" style="float: right">
   <a href="/songs/search">曲名で検索する</a>
 </div> -->
 
-
-
+<div class="row">
   <% @artists.each do |artist| %>
     <li class="col-xs-6 col-md-4">
       <a href="/artists/<%= artist.id %>" class="thumbnail image">
@@ -14,3 +13,4 @@
       </a>
     </li>
   <% end %>
+</div>
