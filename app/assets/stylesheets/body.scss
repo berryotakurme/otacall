@@ -4,7 +4,12 @@
   font-size: 20px;
 }
 
-.content {
+.jumbotron_width {
+  width: 92%;
+}
+
+
+.main_contents {
   width: 88%;
 }
 
@@ -14,4 +19,20 @@ li {
 
 .panel-body {
   background-color: #5d3939;
+}
+
+
+
+.contents.row {
+
+}
+
+#call {
+  width: 740px;
+  height: 290px;
+}
+
+#comment {
+  width: 1238px;
+  height: 200px;
 }
