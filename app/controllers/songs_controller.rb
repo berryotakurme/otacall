@@ -7,10 +7,11 @@ class SongsController < ApplicationController
     @call_number = @calls.each.with_index(page_index) do |call, i|
       call.call_index = i
     end
+    render :layout => 'song_show'
   end
 
   def search
-    @songs = Song.where('name LIKE(?)', "%#{params[:keyword]}%")
+    @songs = Song.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(20)
   end
 
 end
