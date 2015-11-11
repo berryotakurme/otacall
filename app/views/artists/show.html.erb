@@ -1,7 +1,9 @@
+<div class="page-header">
+  <h2><%= @artist.name %>の曲一覧</h2>
+</div>
+
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-body"><%= @artist.name %>の曲一覧</div>
-
   <div class="list-group">
     <% @songs.each do |song| %>
         <a href="/songs/<%= song.id %>" class="list-group-item"><%= song.name %></a>
