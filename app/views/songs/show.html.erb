@@ -1,9 +1,6 @@
-<%= @song.name %>のコール一覧
-<% if user_signed_in? %>
-  <div class="entry_button" style="float: right">
-    <a href="/songs/<%= @song.id %>/calls/new">コールを投稿する</a>
-  </div>
-<% end %>
+<div class="page-header">
+  <h3><%= @song.name %>のコール一覧</h3>
+</div>
 
 <% if @calls.present? %>
   <%= render partial: "calls/call", collection: @calls %>
