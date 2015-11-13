@@ -6,7 +6,7 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
-    @songs = @artist.songs.page(params[:page]).per(20)
+    @songs = @artist.songs.where(display: 1).page(params[:page]).per(20)
   end
 
 end

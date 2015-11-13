@@ -9085,9 +9085,9 @@ hr.color4 {
 .panel-heading,
 .panel-body,
 .panel-footer {
-  background: #e29da0;
+  background: #f5f5f5;
   color: #ffffff;
-  color: #fcf3f3;
+  color: #333333;
 }
 .panel-heading.color1,
 .panel-body.color1,

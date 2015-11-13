@@ -7,7 +7,7 @@ require 'uri'
 
     elements.each do |ele|
       title = ele.inner_text
-      song = Song.where(name: title, artist_id: 3).first_or_initialize
+      song = Song.where(name: title, artist_id: 3, display: 1).first_or_initialize
       song.save
     end
   end
@@ -112,7 +112,7 @@ require 'uri'
 
     elements.each do |ele|
       title = ele.inner_text
-      song = Song.where(name: title, artist_id: 8).first_or_initialize
+      song = Song.where(name: title, artist_id: 8, display: 1).first_or_initialize
       song.save
     end
   end
@@ -124,7 +124,7 @@ require 'uri'
 
     elements.each do |ele|
       title = ele.inner_text
-      song = Song.where(name: title, artist_id: 9).first_or_initialize
+      song = Song.where(name: title, artist_id: 9, display: 1).first_or_initialize
       song.save
     end
   end
