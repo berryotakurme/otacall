@@ -2,6 +2,9 @@ ja:
   activerecord:
     attributes:
       user:
+        nickname: 'ニックネーム'
+        oshi_member: '推しメン'
+        greeting: 'あいさつ'
         current_password: "現在のパスワード"
         email: "メールアドレス"
         password: "パスワード"
