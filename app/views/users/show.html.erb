@@ -1,14 +1,12 @@
-<div class="page-header">
-  <h2><%= @user.nickname %>さんのマイページ</h2>
-</div>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= @user.nickname %>さんのマイページ</div>
 
-<div class="page-header">
-  <h4><small>推しメン : </small><%= @user.oshi_member %></h4>
-</div>
+<ul class="list-group">
+    <li class="list-group-item">
+      <small>推しメン : </small><%= @user.oshi_member %></li>
 
-<div class="page-header">
-  <h4><small>あいさつ : </small><%= @user.greeting %></h4>
-</div>
+<li class="list-group-item">
+  <small>あいさつ : </small><%= @user.greeting %></li>
 
 <div class="page-header">
   <h3>投稿したコール一覧</h3>
