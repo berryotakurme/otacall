@@ -8,8 +8,14 @@ before_action :authenticate_user!, :only => [:new, :edit]
   end
 
   def create
-    Call.create(create_params)
-    redirect_to song_path(params[:song_id])
+    @song = Song.find(params[:song_id])
+    if Call.find_by(song_id: @song.id, user_id: current_user.id)
+      redirect_to song_path(@song)
+
+    else
+      Call.create(create_params)
+      redirect_to song_path(@song)
+    end
   end
 
   def show
