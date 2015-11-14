@@ -26,7 +26,7 @@
 
             </ul>
           </li>
-                      <li><%= link_to 'この曲のコールを投稿する', new_song_call_path(@song.id), method: :get %></li>
+                      <li><%= link_to "#{@song.name}のコールを投稿する", new_song_call_path(@song.id), method: :get %></li>
 
             <% else %>
 
@@ -47,6 +47,11 @@
   </header>
 
 <div class="under_header">
+
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+
 
   <div class="content center-block">
     <div class="jumbotron">

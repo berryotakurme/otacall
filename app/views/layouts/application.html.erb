@@ -46,6 +46,10 @@
 
 <div class="under_header">
 
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+
   <div class="content center-block">
     <div class="jumbotron">
       <div class="jumbotron_width center-block">
