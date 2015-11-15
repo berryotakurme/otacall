@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 
   def create
     Comment.create(create_params)
-    redirect_to song_call_path(@song, @call)
+    redirect_to song_call_path(@song, @call), :flash => {:notice => "コメントを投稿しました！！"}
   end
 
   def edit
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if current_user.id == @comment.user_id
       @comment.update(create_params)
-      redirect_to song_call_path(@song, @call)
+      redirect_to song_call_path(@song, @call), :flash => {:notice => "コメントを編集しました！！"}
     else
       redirect_to song_call_path(@song, @call)
     end

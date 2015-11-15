@@ -10,11 +10,11 @@ before_action :authenticate_user!, :only => [:new, :edit]
   def create
     @song = Song.find(params[:song_id])
     if Call.find_by(song_id: @song.id, user_id: current_user.id)
-      redirect_to song_path(@song)
+      redirect_to song_path(@song), :flash => {:error => "同じ曲にコールを2回以上投稿することはできません！！"}
 
     else
       Call.create(create_params)
-      redirect_to song_path(@song)
+      redirect_to song_path(@song), :flash => {:notice => "コールを投稿しました！！"}
     end
   end
 
@@ -39,7 +39,7 @@ before_action :authenticate_user!, :only => [:new, :edit]
     @call = Call.find(params[:id])
     if current_user.id == @call.user_id
       @call.update(create_params)
-      redirect_to song_path(@song)
+      redirect_to song_path(@song), :flash => {:notice => "コールを編集しました！！"}
     else
       redirect_to song_path(@song)
     end
