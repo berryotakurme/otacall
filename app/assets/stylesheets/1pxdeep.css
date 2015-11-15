@@ -5043,7 +5043,7 @@ a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #70a9da;
+  border-color: #fcf3f3;
 }
 .thumbnail .caption {
   padding: 9px;
