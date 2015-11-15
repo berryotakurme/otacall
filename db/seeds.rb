@@ -8,8 +8,8 @@
 
 require "csv"
 
-artists_csv = CSV.readlines("db/artists.csv")
-artists_csv.shift
-artists_csv.each do |row|
-  Artist.create(name: row[1], image_url: row[4])
+songs_csv = CSV.readlines("db/songs.csv")
+songs_csv.shift
+songs_csv.each do |row|
+  Song.create(name: row[1], artist_id: row[2], display: row[5])
 end
