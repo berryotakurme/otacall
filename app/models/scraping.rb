@@ -2,7 +2,7 @@ class Scraping
 require 'uri'
   def self.angerme_scraping
     agent = Mechanize.new
-    page = agent.get('http://www.uta-net.com/search/?Aselect=1&Bselect=3&Keyword=%83X%83}%83C%83%8C%81[%83W&sort=5')
+    page = agent.get('http://www.uta-net.com/search/?Aselect=1&Keyword=%83A%83%93%83W%83%85%83%8B%83%80&Bselect=3&x=0&y=0')
     elements = page.search('.side.td1 a')
 
     elements.each do |ele|
@@ -23,7 +23,7 @@ require 'uri'
 
       elements.each do |ele|
         title = ele.inner_text
-        song = Song.where(name: title, artist_id: 2).first_or_initialize
+        song = Song.where(name: title, artist_id: 2, display: 1).first_or_initialize
         song.save
       end
 
@@ -52,7 +52,7 @@ require 'uri'
 
     elements.each do |ele|
       title = ele.inner_text
-      song = Song.where(name: title, artist_id: 1).first_or_initialize
+      song = Song.where(name: title, artist_id: 1, display: 1).first_or_initialize
       song.save
     end
   end
@@ -64,7 +64,7 @@ require 'uri'
 
     elements.each do |ele|
       title = ele.inner_text
-      song = Song.where(name: title, artist_id: 4).first_or_initialize
+      song = Song.where(name: title, artist_id: 4, display: 1).first_or_initialize
       song.save
     end
   end
@@ -76,7 +76,7 @@ require 'uri'
 
     elements.each do |ele|
       title = ele.inner_text
-      song = Song.where(name: title, artist_id: 5).first_or_initialize
+      song = Song.where(name: title, artist_id: 5, display: 1).first_or_initialize
       song.save
     end
   end
@@ -88,7 +88,7 @@ require 'uri'
 
     elements.each do |ele|
       title = ele.inner_text
-      song = Song.where(name: title, artist_id: 6).first_or_initialize
+      song = Song.where(name: title, artist_id: 6, display: 1).first_or_initialize
       song.save
     end
   end
@@ -100,7 +100,7 @@ require 'uri'
 
     elements.each do |ele|
       title = ele.inner_text
-      song = Song.where(name: title, artist_id: 7).first_or_initialize
+      song = Song.where(name: title, artist_id: 7, display: 1).first_or_initialize
       song.save
     end
   end

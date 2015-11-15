@@ -11,5 +11,5 @@ require "csv"
 artists_csv = CSV.readlines("db/artists.csv")
 artists_csv.shift
 artists_csv.each do |row|
-  Artist.create(name: row[1], image_url: row[2])
+  Artist.create(name: row[1], image_url: row[4])
 end
