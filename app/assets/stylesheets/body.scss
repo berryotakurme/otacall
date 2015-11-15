@@ -18,7 +18,7 @@ li {
 }
 
 .panel-body {
-  background-color: #5d3939;
+  background-color: #cdc0c0;
 }
 
 
@@ -33,6 +33,16 @@ li {
 }
 
 #comment {
-  width: 1238px;
+  width: 740px;
   height: 200px;
+}
+
+.outer {
+  height: 350px;
+  display: inline-block;
+  margin-bottom: 50px;
+}
+
+.image img {
+  width: 100%;
 }

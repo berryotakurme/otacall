@@ -1,10 +1,7 @@
   <%= render partial: "calls/callshow" %>
 
 
-    <% if user_signed_in? %>
-      <%= link_to "このコールにコメントする", new_song_call_comment_path(@call.song.id, @call.id), method: :get %>
-    <% end %>
-  </li>
+
 
 <div class="page-header">
   <h3>コメント一覧</h3>

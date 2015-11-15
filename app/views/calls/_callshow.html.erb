@@ -5,11 +5,11 @@
      </a></button>
   </div>
   <ul class="list-group">
-    <li class="list-group-item">投稿日時 : <%= @call.created_at %></li>
+    <li class="list-group-item">投稿日時 : <%= @call.created_at.strftime("%Y年%m月%d日 %H時%M分") %></li>
 
     <% if @call.created_at != @call.updated_at %>
 
-    <li class="list-group-item">更新日時 : <%= @call.updated_at %></li>
+    <li class="list-group-item">更新日時 : <%= @call.updated_at.strftime("%Y年%m月%d日 %H時%M分") %></li>
 
 <% end %>
 
