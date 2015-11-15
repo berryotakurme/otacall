@@ -1,6 +1,18 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Number : <%= comment.comment_index %>  投稿者 : <a href="/users/<%= comment.user_id %>"><%= comment.user.nickname %>
-  </a></div>
+  <div class="panel-heading">Number : <%= comment.comment_index %>  投稿者 : <button class="btn btn-default" type="submit"><a href="/users/<%= comment.user_id %>"><%= comment.user.nickname %>
+  </a></button>
+  </div>
+
+<ul class="list-group">
+    <li class="list-group-item">投稿日時 : <%= comment.created_at.strftime("%Y年%m月%d日 %H時%M分") %></li>
+
+    <% if comment.created_at != comment.updated_at %>
+
+    <li class="list-group-item">更新日時 : <%= comment.updated_at.strftime("%Y年%m月%d日 %H時%M分") %></li>
+
+<% end %>
+
+  </ul>
   <div class="panel-body">
     コメント : <%= comment.text %>
   </div>
